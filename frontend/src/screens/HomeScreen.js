@@ -3,7 +3,7 @@ import { Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 import Product from "../components/Product";
-import BACKEND_URL from "../config";
+import { BACKEND_URL } from "../config";
 
 function HomeScreen() {
   const [products, setProducts] = useState([]);

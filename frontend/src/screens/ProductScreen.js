@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 import Rating from "../components/Rating";
-import BACKEND_URL from "../config";
+import { BACKEND_URL } from "../config";
 
 function ProductScreen() {
   const productId = useParams().id;
