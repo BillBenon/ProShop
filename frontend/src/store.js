@@ -10,7 +10,7 @@ const initialState = {};
 const middleware = [thunk];
 
 const store = configureStore(
-  reducer,
+  { reducer },
   initialState,
   composeWithDevTools(applyMiddleware(...middleware))
 );
