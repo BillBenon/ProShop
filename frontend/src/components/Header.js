@@ -4,11 +4,18 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import { logout } from "../actions/userActions";
+import { USER_LOGIN_SUCCESS } from "../constants/userConstants";
 
 function Header() {
+  const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const dispatch = useDispatch();
+  if (!userInfo && localStorage.getItem("userInfo")) {
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: JSON.parse(localStorage.getItem("userInfo")),
+    });
+  }
 
   const logoutHandler = () => {
     dispatch(logout());
