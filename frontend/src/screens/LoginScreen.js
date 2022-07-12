@@ -26,7 +26,7 @@ function LoginScreen() {
   const { error, loading, userInfo } = userLogin;
 
   useEffect(() => {
-    userInfo && navigate(redirect);
+    userInfo && navigate(`/${redirect}`);
   }, [navigate, userInfo, redirect]);
 
   const submitHandler = (e) => {
