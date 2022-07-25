@@ -28,7 +28,7 @@ function PlaceOrderScreen() {
     Number(cart.taxPrice)
   ).toFixed(2);
 
-  if (cart.paymentMethod) {
+  if (!cart.paymentMethod) {
     navigate("/payment");
   }
 
@@ -37,7 +37,7 @@ function PlaceOrderScreen() {
       navigate(`/order/${order?._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
-  }, [success, navigate, order?._id])
+  }, [success, navigate, order?._id, dispatch])
 
   const placeOrder = () => {
     dispatch(createOrder({
